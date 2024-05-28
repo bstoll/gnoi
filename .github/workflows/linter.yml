@@ -22,3 +22,10 @@ jobs:
         uses: plexsystems/protolint-action@v0.7.0
         with:
           configDirectory: .github
+
+      - name: Install buf CLI
+        uses: bufbuild/buf-setup-action@v1.32.1
+      - name: Identify breaking protobuf changes
+        uses: bufbuild/buf-breaking-action@v1
+        with:
+          against: "https://github.com/openconfig/gnoi.git#branch=main"

@@ -35,13 +35,14 @@ message ClearBGPNeighborRequest {
   string address = 1;  // IPv4 or IPv6 BGP neighbor address to clear.
   // Routing instance containing the neighbor. Defaults to the global routing
   // table.
-  string routing_instance = 2;
+  string routing_instances = 2; // breaking
   enum Mode {
     SOFT = 0;         // Send route-refresh and reapply policy.
     SOFTIN = 1;       // Re-apply inbound policy on stored Adj-RIB-In.
     HARD = 2;         // Teardown and restart TCP connection.
   }
   Mode mode = 3;       // Which mode to use for the clear operation.
+  string test_addition = 4; // non breaking
 }
 
 message ClearBGPNeighborResponse {
