@@ -5,4 +5,4 @@ on:
 
 jobs:
   proto_breaking:
-    uses: bstoll/common-ci/.github/workflows/proto_breaking.yml@ea04f6c241d58f1bb5cc15de4dbcd1045847ef3c
+    uses: bstoll/common-ci/.github/workflows/proto_breaking.yml@07596457fbd765139789b7fc0ac928e160545594
