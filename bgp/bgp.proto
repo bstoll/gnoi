@@ -26,7 +26,7 @@ option (types.gnoi_version) = "0.1.0";
 
 service BGP {
   // ClearBGPNeighbor clears a BGP session.
-  rpc ClearBGPNeighbor(ClearBGPNeighborRequest)
+  rpc ClearBGPNeighbors(ClearBGPNeighborRequest)
     returns (ClearBGPNeighborResponse) {}
 
 }
@@ -39,9 +39,10 @@ message ClearBGPNeighborRequest {
   enum Mode {
     SOFT = 0;         // Send route-refresh and reapply policy.
     SOFTIN = 1;       // Re-apply inbound policy on stored Adj-RIB-In.
-    HARD = 2;         // Teardown and restart TCP connection.
+    MODIFIED = 2;         // Teardown and restart TCP connection.
   }
   Mode mode = 3;       // Which mode to use for the clear operation.
+  string safe = 4; // safe new field
 }
 
 message ClearBGPNeighborResponse {
